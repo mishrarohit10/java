@@ -25,6 +25,7 @@ public class Trees {
         ArrayList<Integer> list = new ArrayList<>();
         // preOrder(root,list);
         ArrayList<Integer> ans = levelOrder(root);
+        ArrayList<ArrayList<Integer>> ans1 = levelOrder1(root);
         for(int i: ans) {
             System.out.print(i + " ");
         }
@@ -59,5 +60,29 @@ public class Trees {
             list.add(q.poll().val);
         }
         return list;
+    }
+    public static List<List<Integer>> levelOrder1(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        List<List<Integer>> ans = new LinkedList<List<Integer>>();
+        if(root == null) {
+            return ans;
+        }
+        q.offer(root);
+        while(!q.isEmpty()) {
+            int level = q.size();
+            List<Integer> list = new LinkedList<>();
+        for(int i=0 ; i<level; i++) {
+            Node temp = q.poll();
+            if(temp.left != null) {
+                q.add(temp.left);
+            }
+            if(temp.right != null) {
+                q.add(temp.right);
+            }
+            list.add(temp.val);
+        }
+        ans.add(list);
+        }
+        return ans;
     }
 }
