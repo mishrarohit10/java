@@ -1,4 +1,3 @@
 # Java Git Repository
 
-    This Git repository contains various Java code samples.
-    👍
+    This Git repository contains various Java code samples. 👍
