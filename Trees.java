@@ -31,8 +31,8 @@ public class Trees {
         // for(Integer i: list) {
         //     System.out.println(i);
         // }
-        int height = height(root);
-        System.out.println(height);
+        // int height = height(root);
+        // System.out.println(height);
     }
 
     static void preOrder(Node root, ArrayList<Integer> list) {
@@ -70,6 +70,19 @@ public class Trees {
         int l = height(root.left);
         int r = height(root.right);
         return 1 + Math.max(l,r);
+    }
+    
+    public static boolean isBalanced(Node root) {
+        if(root==null) {
+            return true;
+        }
+        int l = height(root.left);
+        int r = height(root.right);
+        
+        if(Math.abs(l-r) <=1 && isBalanced(root.left) && isBalanced(root.right)) {
+            return true;
+        }
+        return false;
     }
     
 }
